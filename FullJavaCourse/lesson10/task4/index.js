@@ -1,5 +1,7 @@
-const getMaxAbsoluteNumber = arr => !Array.isArray(arr) || arr.length === 0 ? null : Math.max(...arr.map(num => Math.abs(num)));
-  
+const getMaxAbsoluteNumber = (arr) =>
+  !Array.isArray(arr) || arr.length === 0
+    ? null
+    : Math.max(...arr.map((num) => Math.abs(num)));
 
 console.log(getMaxAbsoluteNumber([-10, 10, -10])); // ===> 10
 console.log(getMaxAbsoluteNumber([2.1, 0, 1.6])); // ===> 2.1
