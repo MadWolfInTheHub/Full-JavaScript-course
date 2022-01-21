@@ -1,15 +1,3 @@
-const sortContacts = (contacts, isAsc) => {
-  let res = contacts.sort((a, b) => {
-    if (isAsc === true) {
-        return a.name.localeCompare(b.name);
-    } else if (isAsc === false) {
-        return b.name.localeCompare(a.name);
-    }
-  });
-
-  return res;
-};
-
 const contacts = [
   {
     name: "Serhii",
@@ -41,6 +29,16 @@ const contacts = [
     number: "888 - 888 - 88",
   },
 ];
+const sortContacts = (contacts, isAsc) => {
+  if (!Array.isArray(contacts)) return null;
+
+  return contacts.slice().sort((a, b) => {
+    if (isAsc === false) {
+      return b.name.localeCompare(a.name);
+    }
+    return a.name.localeCompare(b.name);
+  });
+};
 
 console.log(sortContacts(contacts, false));
 console.log(sortContacts(contacts, true));

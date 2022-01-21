@@ -19,6 +19,6 @@ const splitText = (text, length) => {
   return strArr.join('\n');
 };
 
+console.log(splitText(["abcd efgh"], 4));
 console.log(splitText("abcd efgh", 4));
-console.log(splitText("abcd efgh"));
 console.log(splitText([], 4));

@@ -9,7 +9,7 @@ const getRandomNumbers = (length, from, to) => {
     .map((el) => Math.floor(Math.random() * (max - min) + min));
 };
 
-console.log(getRandomNumbers(5, 0.33, 0.22));
-console.log(getRandomNumbers(5, 1.4, 3.22)); // ==> [2, 2, 2, 3, 2]
-console.log(getRandomNumbers(5, 1.4, 3.22)); // ==> [3, 2, 2, 2, 2]
-console.log(getRandomNumbers(5, 1.4, 3.22)); // ==> [3, 3, 2, 3, 2]
+console.log(getRandomNumbers(5, 0.33, 1.22));
+console.log(getRandomNumbers(5, 1.4, 10.22)); // ==> [2, 2, 2, 3, 2]
+console.log(getRandomNumbers(5, 1.4, 30.22)); // ==> [3, 2, 2, 2, 2]
+console.log(getRandomNumbers(5, 1.4, 30.22)); // ==> [3, 3, 2, 3, 2]
