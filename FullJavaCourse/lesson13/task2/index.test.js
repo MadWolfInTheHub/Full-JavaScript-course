@@ -7,7 +7,7 @@ it("should calculate the square of numbers", () => {
 });
 
 it("should get odd numbers", () => {
-  const result = getOddnumbers([1, 2, 3, 4, 5, 6]);
+  const result = getOddnumbers([1, 2, 3, 4, 5]);
 
   expect(result).toEqual([1, 3, 5]);
 });
