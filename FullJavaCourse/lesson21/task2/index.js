@@ -1,6 +1,7 @@
 export const getTitleElement = () => {
     const TitleElement = document.querySelector('.title'); 
-    return console.dir(TitleElement);
+    console.dir(TitleElement);
+    return TitleElement;
 }
 
 getTitleElement();
