@@ -1,4 +1,4 @@
-export const creatList = () => {
+export const clearList = () => {
     return document.querySelector('.categories').innerHTML = '';
 }
 
