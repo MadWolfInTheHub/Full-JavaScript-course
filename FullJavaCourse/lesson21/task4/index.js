@@ -13,8 +13,3 @@ export const getPlans = () => {
 export const getGoal = () => { 
     return document.querySelector('.goal').outerHTML;
 }
-
-console.log(getTitle());
-console.log(getDescription());
-console.log(getPlans());
-console.log(getGoal());
