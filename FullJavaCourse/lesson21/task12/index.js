@@ -1,6 +1,6 @@
 export const squaredNumbers = () => {
-  const five = document.querySelectorAll(".number");
-  Array.from(five).map((listItem) => {
+  const squaredNumbersList = document.querySelectorAll(".number");
+  Array.from(squaredNumbersList).map((listItem) => {
     const squaredNumber = listItem.dataset.number * listItem.dataset.number;
     const dataSquaredNumber = listItem.setAttribute(
       "dataset-squared-number",
@@ -8,7 +8,7 @@ export const squaredNumbers = () => {
     );
     return dataSquaredNumber
   });
-  return five;
+  return squaredNumbersList;
 };
 
 /* squaredNumbers(); */
