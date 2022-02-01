@@ -1,10 +1,7 @@
 const checkBox = document.querySelector(".task-status");
-checkBox.setAttribute("checked", "true");
-const check = document.querySelector('input[type=checkbox]:checked');
-
 
 const checkBoxCheck = () => {
-  console.log(check.value);
+  console.log(checkBox.checked);
 };
 
-checkBox.addEventListener("click", checkBoxCheck);
+checkBox.addEventListener("change", checkBoxCheck);
