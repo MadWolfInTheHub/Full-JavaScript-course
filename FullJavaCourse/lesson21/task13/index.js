@@ -1,4 +1,4 @@
-export const getsection = (num) => {
+export const getSection = (num) => {
     const getSpan = document.querySelector(`span[data-number='${num}']`);
     const getDiv = getSpan.closest('.box')
     return getDiv.getAttribute('data-section');
