@@ -3,13 +3,14 @@ export const squaredNumbers = () => {
   Array.from(squaredNumbersList).map((listItem) => {
     const squaredNumber = listItem.dataset.number * listItem.dataset.number;
     const dataSquaredNumber = listItem.setAttribute(
-      "dataset-squared-number",
+      "data-squared-number",
       `${squaredNumber}`
     );
     return dataSquaredNumber
   });
   return squaredNumbersList;
 };
+
 
 /* squaredNumbers(); */
 
