@@ -1,4 +1,4 @@
-export const finishform = () => {
+export const finishForm = () => {
   const formInput = document.querySelector(".login-form");
   const loginInput = document.createElement("input");
   loginInput.setAttribute("type", "text");
