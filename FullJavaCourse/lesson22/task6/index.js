@@ -1,10 +1,11 @@
 const buttons = document.querySelectorAll(".btn");
 
+const handleClick = () => {
+  console.log(el.textContent);
+};
+
 const buttonsArr = Array.from(buttons).forEach((el) => {
-    const handleClick = () => {
-      console.log(el.textContent);
-    };
-    el.addEventListener("click", handleClick);
-  });
+  el.addEventListener("click", handleClick);
+});
 
 /* привет */
