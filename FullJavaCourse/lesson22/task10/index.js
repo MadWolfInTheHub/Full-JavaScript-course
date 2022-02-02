@@ -32,12 +32,24 @@ clear.addEventListener("click", clearEventList);
 
 const attachHandlers = document.querySelector(".attach-handlers-btn");
 const activate = () => {
-  
+  elem.addEventListener("click", logGrayDiv, true);
+elem.addEventListener("click", logGreenDiv);
+
+pElem.addEventListener("click", logGrayP, true);
+pElem.addEventListener("click", logGreenP);
+
+spanElem.addEventListener("click", logGraySpan, true);
+spanElem.addEventListener("click", logGreenSpan);
 };
 attachHandlers.addEventListener("click", activate);
 
 const removeHandlers = document.querySelector(".remove-handlers-btn");
 const disable = () => {
-  
+  elem.removeEventListener('click', logGrayDiv, true);
+  elem.removeEventListener("click", logGreenDiv);
+  pElem.removeEventListener("click", logGrayP, true);
+  pElem.removeEventListener("click", logGreenP);
+  spanElem.removeEventListener("click", logGraySpan, true);
+  spanElem.removeEventListener("click", logGreenSpan);
 };
 removeHandlers.addEventListener("click", disable);
