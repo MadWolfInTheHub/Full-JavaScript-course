@@ -7,9 +7,9 @@ const logTarget = (text, color) => {
   eventListElem.innerHTML += `<span style="color: ${color}; margin-left: 8px">${text}</span>`;
 };
 
-const logGrayDiv = logTarget.bind(null, "DIV", "gray");
-const logGrayP = logTarget.bind(null, "P", "gray");
-const logGraySpan = logTarget.bind(null, "SPAN", "gray");
+const logGrayDiv = logTarget.bind(null, "DIV", "grey");
+const logGrayP = logTarget.bind(null, "P", "grey");
+const logGraySpan = logTarget.bind(null, "SPAN", "grey");
 
 const logGreenDiv = logTarget.bind(null, "DIV", "green");
 const logGreenP = logTarget.bind(null, "P", "green");
