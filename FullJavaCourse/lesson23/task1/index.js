@@ -7,7 +7,7 @@ const errorPassword = document.querySelector(".error-text_password");
 /* создаем проверочные функции на валидность текста в инпуте */
 const isRequired = (value) => (value ? undefined : "Required");
 const isEmail = (value) =>
-  value.includes("@") ? undefined : "Shoud be an email";
+  value.includes("@") ? undefined : "Should be an email";
 /* записываем наши ф-ции валидаторы в массив для того чтобы мочь их переиспользоывать */
 const validatorsDyFiled = {
   email: [isRequired, isEmail],
