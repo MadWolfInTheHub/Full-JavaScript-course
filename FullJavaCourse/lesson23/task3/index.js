@@ -70,7 +70,7 @@ const createBtn = document.querySelector(".create-task-btn");
 const addTask = () => {
   const input = document.querySelector(".task-input");
   if (input.value) {
-    tasks.unshift({ text: input.value, done: false });
+    tasks.unshift({ text: input.value, done: false, id: getRandomInt(1, 1000) });
     input.value = "";
   }
   renderList();
