@@ -39,16 +39,8 @@ const renderList = () => {
 };
 
 const newTask = (event) => {
-  tasks.forEach((el) => {
-    if (el.text === event.target.closest(".list__item").textContent && el.done === false) {
-      el.done = event.target.checked;
-      return newListIteam(event)
-    }
-    if (el.text === event.target.closest(".list__item").textContent && el.done === true) {
-      el.done = event.target.checked;
-      return newListIteam(event).remove("list__item_done");
-    }
-  });
+  const result = tasks.find(({ text }) => text === event.target.closest(".list__item").textContent);
+  result.done = event.target.checked
   renderList();
 }
 
