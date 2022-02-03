@@ -8,6 +8,8 @@ const tasks = [
 
 const listElem = document.querySelector(".list");
 
+
+
 const renderTasks = (tasksList) => {
   const tasksElems = tasksList
     .sort((a, b) => a.done - b.done)
@@ -32,21 +34,35 @@ const renderTasks = (tasksList) => {
 renderTasks(tasks);
 /* we need to check changes in each checkbox and according to this changes change the status of listed task */
 const listTasks = document.querySelectorAll(".list__item");
-const checkBox = document.querySelectorAll(".list__item-checkbox");
 
-const checkBoxCheck = (event) => {
-  console.log(event.target.checked);
-  if (event.target.checked) {
-    return event.target
-      .closest(".list__item")
-      .classList.add("list__item_done");
-  } 
-  return event.target.closest(".list__item").classList.remove("list__item_done");
-};
+const onBoxSelect = (event) => {
+  const isCheckBox = document.querySelectorAll(".list__item-checkbox");
 
-const checkboxArr = Array.from(checkBox).forEach((el) => {
-  el.addEventListener("change", checkBoxCheck);
-});
+  if (!isCheckBox) {
+    return;
+  }
+
+  const checkBoxCheck = (event) => {
+    if (event.target.checked) {
+      tasks.forEach(el => {
+      el.text === event.target
+      .closest(".list__item").textContent && el.done === false ? el.done = true : el.done})
+      return event.target
+        .closest(".list__item")
+        .classList.add("list__item_done");
+    }
+    return event.target.closest(".list__item").classList.remove("list__item_done");
+  };
+
+  
+  
+  const checkboxArr = Array.from(isCheckBox).forEach((el) => {
+    el.addEventListener("change", checkBoxCheck);
+  });  
+}
+
+listElem.addEventListener('click', onBoxSelect);
+
 
 /* we need to check cnages in input if its not empty we need to add text by cliking on the button 'create' to our object */
 
@@ -64,3 +80,12 @@ const addTask = () => {
 
 createBtn.addEventListener('click', addTask);
 
+/* const generateNumbersRange = () => {
+  const result = [];
+
+  for (let i = 1; i <= tasks.length; i++) {
+    result.push(i);
+  }
+
+  return result;
+}; */
