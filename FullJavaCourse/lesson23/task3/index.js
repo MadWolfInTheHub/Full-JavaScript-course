@@ -7,15 +7,24 @@ const tasks = [
 ];
 
 const listElem = document.querySelector(".list");
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min);
+}
 
+tasks.forEach(el => el.id = getRandomInt(1, 1000));
+console.log(tasks)
 const renderTasks = (tasksList) => {
   const tasksElems = tasksList
     .sort((a, b) => a.done - b.done)
-    .map(({ text, done }) => {
+    .map(({ text, done, id }) => {
       const listItemElem = document.createElement("li");
       listItemElem.classList.add("list__item");
+      listItemElem.setAttribute("data-id", `${id}` );;;
       const checkbox = document.createElement("input");
       checkbox.setAttribute("type", "checkbox");
+      checkbox.setAttribute("data-id", `${id}` );;
       checkbox.checked = done;
       checkbox.classList.add("list__item-checkbox");
       if (done) {
@@ -39,7 +48,8 @@ const renderList = () => {
 };
 
 const newTask = (event) => {
-  const result = tasks.find(({ text }) => text === event.target.closest(".list__item").textContent);
+  const result = tasks.find(({ id }) => String(id) === event.target.dataset.id);
+  console.log(result)
   result.done = event.target.checked
   renderList();
 }
