@@ -32,55 +32,45 @@ const renderTasks = (tasksList) => {
 renderTasks(tasks);
 /* we need to check changes in each checkbox and according to this changes change the status of listed task */
 const listTasks = document.querySelectorAll(".list__item");
-const restartTodoList = () => {
+const newListIteam = (event) => event.target.closest(".list__item")
+const renderList = () => {
   listElem.textContent = "";
   renderTasks(tasks);
 };
 
+const newTask = (event) => {
+  tasks.forEach((el) => {
+    if (el.text === event.target.closest(".list__item").textContent && el.done === false) {
+      el.done = event.target.checked;
+      return newListIteam(event)
+    }
+    if (el.text === event.target.closest(".list__item").textContent && el.done === true) {
+      el.done = event.target.checked;
+      return newListIteam(event).remove("list__item_done");
+    }
+  });
+  renderList();
+}
+
 const onBoxSelect = (event) => {
   const isCheckBox = event.target.classList.contains("list__item-checkbox");
- 
+
   if (!isCheckBox) {
     return;
   }
-
-  tasks.forEach((el) => {
-    if (
-      el.text === event.target.closest(".list__item").textContent &&
-      el.done === false
-    ) {
-      el.done = true;
-      return event.target
-        .closest(".list__item")
-        .classList.add(".list__item_done");
-    }
-    if (
-      el.text === event.target.closest(".list__item").textContent &&
-      el.done === true
-    ) {
-      el.done = false;
-      return event.target
-        .closest(".list__item")
-        .classList.remove("list__item_done");
-    }
-  });
-
-  restartTodoList();
+  newTask(event);
 };
-
 listElem.addEventListener("click", onBoxSelect);
 
 /* we need to check cnages in input if its not empty we need to add text by cliking on the button 'create' to our object */
 
 const createBtn = document.querySelector(".create-task-btn");
-const input = document.querySelector(".task-input");
-
 const addTask = () => {
+  const input = document.querySelector(".task-input");
   if (input.value) {
     tasks.unshift({ text: input.value, done: false });
     input.value = "";
   }
-  restartTodoList();
+  renderList();
 };
-
 createBtn.addEventListener("click", addTask);
