@@ -32,35 +32,40 @@ const renderTasks = (tasksList) => {
 renderTasks(tasks);
 /* we need to check changes in each checkbox and according to this changes change the status of listed task */
 const listTasks = document.querySelectorAll(".list__item");
+const restartTodoList = () => {
+  listElem.textContent = "";
+  renderTasks(tasks);
+};
 
 const onBoxSelect = (event) => {
   const isCheckBox = event.target.classList.contains("list__item-checkbox");
-  console.log(isCheckBox);
+ 
   if (!isCheckBox) {
     return;
   }
-  console.log(event.target.closest(".list__item"));
 
-  if (event.target.checked) {
-    tasks.forEach((el) => {
-      if (
-        el.text === event.target.closest(".list__item").textContent &&
-        el.done === false
-      ) {
-        el.done = true;
-        return event.target.closest(".list__item").classList.add(".list__item_done");
-      }
-       if (
-        el.text === event.target.closest(".list__item").textContent &&
-        el.done === true
-      ) {
-        el.done = false;
-        return event.target.closest(".list__item").classList.remove("list__item_done");
-      }
-    });
-  }
-  listElem.textContent = "";
-  renderTasks(tasks);
+  tasks.forEach((el) => {
+    if (
+      el.text === event.target.closest(".list__item").textContent &&
+      el.done === false
+    ) {
+      el.done = true;
+      return event.target
+        .closest(".list__item")
+        .classList.add(".list__item_done");
+    }
+    if (
+      el.text === event.target.closest(".list__item").textContent &&
+      el.done === true
+    ) {
+      el.done = false;
+      return event.target
+        .closest(".list__item")
+        .classList.remove("list__item_done");
+    }
+  });
+
+  restartTodoList();
 };
 
 listElem.addEventListener("click", onBoxSelect);
@@ -72,24 +77,10 @@ const input = document.querySelector(".task-input");
 
 const addTask = () => {
   if (input.value) {
-    listElem.textContent = "";
     tasks.unshift({ text: input.value, done: false });
-    renderTasks(tasks);
     input.value = "";
   }
+  restartTodoList();
 };
 
 createBtn.addEventListener("click", addTask);
-
-/* const generateNumbersRange = () => {
-  const result = [];
-
-  for (let i = 1; i <= tasks.length; i++) {
-    result.push(i);
-  }
-
-  return result;
-}; */
-
-/* tasks.forEach(el => {
-  el.text === event.target.closest(".list__item").textContent && el.done === false ? el.done = true : el.done = false}) */
