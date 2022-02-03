@@ -8,8 +8,6 @@ const tasks = [
 
 const listElem = document.querySelector(".list");
 
-
-
 const renderTasks = (tasksList) => {
   const tasksElems = tasksList
     .sort((a, b) => a.done - b.done)
@@ -36,49 +34,52 @@ renderTasks(tasks);
 const listTasks = document.querySelectorAll(".list__item");
 
 const onBoxSelect = (event) => {
-  const isCheckBox = document.querySelectorAll(".list__item-checkbox");
-
+  const isCheckBox = event.target.classList.contains("list__item-checkbox");
+  console.log(isCheckBox);
   if (!isCheckBox) {
     return;
   }
+  console.log(event.target.closest(".list__item"));
 
-  const checkBoxCheck = (event) => {
-    if (event.target.checked) {
-      tasks.forEach(el => {
-      el.text === event.target
-      .closest(".list__item").textContent && el.done === false ? el.done = true : el.done})
-      return event.target
-        .closest(".list__item")
-        .classList.add("list__item_done");
-    }
-    return event.target.closest(".list__item").classList.remove("list__item_done");
-  };
+  if (event.target.checked) {
+    tasks.forEach((el) => {
+      if (
+        el.text === event.target.closest(".list__item").textContent &&
+        el.done === false
+      ) {
+        el.done = true;
+        return event.target.closest(".list__item").classList.add(".list__item_done");
+      }
+       if (
+        el.text === event.target.closest(".list__item").textContent &&
+        el.done === true
+      ) {
+        el.done = false;
+        return event.target.closest(".list__item").classList.remove("list__item_done");
+      }
+    });
+  }
+  listElem.textContent = "";
+  renderTasks(tasks);
+};
 
-  
-  
-  const checkboxArr = Array.from(isCheckBox).forEach((el) => {
-    el.addEventListener("change", checkBoxCheck);
-  });  
-}
-
-listElem.addEventListener('click', onBoxSelect);
-
+listElem.addEventListener("click", onBoxSelect);
 
 /* we need to check cnages in input if its not empty we need to add text by cliking on the button 'create' to our object */
 
-const createBtn = document.querySelector('.create-task-btn');
-const input = document.querySelector('.task-input')
+const createBtn = document.querySelector(".create-task-btn");
+const input = document.querySelector(".task-input");
 
 const addTask = () => {
-  if(input.value) {
-    listElem.textContent = '';
-    tasks.unshift({text: input.value, done: false});
+  if (input.value) {
+    listElem.textContent = "";
+    tasks.unshift({ text: input.value, done: false });
     renderTasks(tasks);
-    input.value = '';  
+    input.value = "";
   }
-}
+};
 
-createBtn.addEventListener('click', addTask);
+createBtn.addEventListener("click", addTask);
 
 /* const generateNumbersRange = () => {
   const result = [];
@@ -89,3 +90,6 @@ createBtn.addEventListener('click', addTask);
 
   return result;
 }; */
+
+/* tasks.forEach(el => {
+  el.text === event.target.closest(".list__item").textContent && el.done === false ? el.done = true : el.done = false}) */
