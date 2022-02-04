@@ -1,4 +1,3 @@
-export const getGreenwichTime = (date) => formater.format(date);
 
 const formater = new Intl.DateTimeFormat("ru", {
   timeZone: "UTC",
@@ -6,5 +5,7 @@ const formater = new Intl.DateTimeFormat("ru", {
   minute: "2-digit",
   hours12: "false",
 });
+
+/* export */ const getGreenwichTime = (date) => formater.format(date);
 
 console.log(getGreenwichTime(new Date()));
