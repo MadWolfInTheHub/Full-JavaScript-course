@@ -3,8 +3,9 @@ export const getDiff = (startDate, endDate) => {
   const second = endDate.getTime();
   const result = second - first;
   const days = Math.floor((result)/(1000*60*60*24));
-  const hours = new Date(result).getHours();
-  const minutes = new Date(result).getMinutes();
-  const seconds = new Date(result).getSeconds();
+  const hours = new Date(result).getUTCHours();
+  const minutes = new Date(result).getUTCMinutes();
+  const seconds = new Date(result).getUTCSeconds();
   return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
+
