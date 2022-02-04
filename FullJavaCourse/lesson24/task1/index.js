@@ -5,5 +5,3 @@ export const dayOfWeek = (date, days) => {
   console.log(date);
   return weekDays[new Date(dateInFuture).getDay()];
 };
-const result = dayOfWeek(new Date(2022, 3, 4), 23);
-console.log(result);
