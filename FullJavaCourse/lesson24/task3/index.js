@@ -9,3 +9,7 @@ export const getDiff = (startDate, endDate) => {
   return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
 
+const startDate = new Date(Date.UTC(2019, 10, 24, 20, 50, 34, 44));
+const endDate = new Date(Date.UTC(2019, 1, 22, 17, 52, 18));
+
+console.log(getDiff(endDate, startDate));
