@@ -8,6 +8,3 @@ export const getDiff = (startDate, endDate) => {
   const seconds = new Date(result).getSeconds();
   return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
-
-console.log(getDiff(new Date(2022, 1, 2), new Date()));
-console.log(new Date)
