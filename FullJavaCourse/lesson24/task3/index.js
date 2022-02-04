@@ -1,4 +1,4 @@
-/* export */ const getDiff = (startDate, endDate) => {
+export const getDiff = (startDate, endDate) => {
   const first = startDate.getTime();
   const second = endDate.getTime();
   const result = second - first;
@@ -13,7 +13,3 @@
   return `${daysLeft}d ${hoursLeft}h ${minutesLeft}m ${secondsLeft}s`;
 }
 
-const startDate = new Date(Date.UTC(2019, 10, 24, 20, 50, 34, 44));
-const endDate = new Date(Date.UTC(2019, 1, 22, 17, 52, 18));
-
-console.log(getDiff(endDate, startDate));
