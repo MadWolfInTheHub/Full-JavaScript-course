@@ -1,5 +1,5 @@
 export const getGreenwichTime = (date) => {
-  const formater = new Intl.DateTimeFormat("en", {
+  const formater = new Intl.DateTimeFormat("ru", {
     timeZone: "UTC",
     hour: "2-digit",
     minute: "2-digit",
