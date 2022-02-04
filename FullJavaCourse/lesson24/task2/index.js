@@ -7,5 +7,3 @@ const formater = new Intl.DateTimeFormat("en-GB", {
 });
 
 export const getGreenwichTime = (date) => formater.format(date);
-
-console.log(getGreenwichTime(new Date()));
