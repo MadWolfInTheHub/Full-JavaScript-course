@@ -1,5 +1,5 @@
 
-const formater = new Intl.DateTimeFormat("ru", {
+const formater = new Intl.DateTimeFormat("en", {
   timeZone: "UTC",
   hour: "2-digit",
   minute: "2-digit",
