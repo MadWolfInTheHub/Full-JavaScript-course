@@ -1,5 +1,5 @@
 export const dayOfWeek = (date, days) => {
-  const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const weekDays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "St"];
   const day = new Date(date).getDate();
   const dateInFuture = new Date(day).setDate(day + days);
   console.log(date);
