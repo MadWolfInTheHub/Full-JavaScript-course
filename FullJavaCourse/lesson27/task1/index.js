@@ -8,7 +8,7 @@ export const getLocalStorageData = () => {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: newValue,
     };
   }, {});
 };
