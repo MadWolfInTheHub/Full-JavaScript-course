@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+.counter {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter__btn {
+    height: 25px;
+    width: 25px;
+}
+
+.counter__amount {
+    height: 25px;
+    width: 25px;
+    margin: 0 10px 0 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+}
