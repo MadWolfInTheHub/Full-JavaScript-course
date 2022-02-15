@@ -12,6 +12,3 @@ export const getLocalStorageData = () => {
     };
   }, {});
 };
-
-getLocalStorageData();
-console.log(getLocalStorageData());
