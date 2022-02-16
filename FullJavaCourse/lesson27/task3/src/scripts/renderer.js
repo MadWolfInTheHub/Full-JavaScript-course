@@ -2,7 +2,7 @@ import { getItem } from "./storage.js";
 
 const listElem = document.querySelector(".list");
 export const renderTasks = () => {
-  const tasks = getItem("taskList") || [];
+  const tasks = getItem("tasksList") || [];
   listElem.innerHTML = '';
   const tasksElems = tasks
     .sort((a, b) => a.done - b.done)

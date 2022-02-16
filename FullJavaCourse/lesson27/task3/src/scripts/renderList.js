@@ -7,10 +7,10 @@ export const onToggleTask = (event) => {
   if (!isCheckBox) {
     return;
   }
-  const tasks = getItem("taskList");
+  const tasks = getItem("tasksList");
   const result = tasks.find(({ id }) => String(id) === event.target.dataset.id);
   result.done = event.target.checked;
-  setItem("taskList", tasks);
+  setItem("tasksList", tasks);
 
   renderTasks();
 };

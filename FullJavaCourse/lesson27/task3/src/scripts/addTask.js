@@ -10,7 +10,7 @@ export const onCreateTask = () => {
     return;
   }
   taskTitleInputElem.value = "";
-  const tasksList = getItem("taskList") || [];
+  const tasksList = getItem("tasksList") || [];
 
   const newTasksList = tasksList.concat({
     text,
@@ -19,6 +19,6 @@ export const onCreateTask = () => {
     id: Math.random(),
   });
 
-  setItem("taskList", newTasksList);
+  setItem("tasksList", newTasksList);
   renderTasks();
 };
