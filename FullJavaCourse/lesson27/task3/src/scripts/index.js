@@ -2,7 +2,6 @@ import { getItem, setItem } from "./storage.js";
 import { renderTasks } from "./renderer.js";
 
 const listElem = document.querySelector(".list");
-renderTasks();
 
 /* we need to check changes in each checkbox and according to this changes change the status of listed task */
 const renderList = () => {
@@ -14,13 +13,13 @@ const newTask = (event) => {
   const tasks = getItem("taskList");
   const result = tasks.find(({ id }) => String(id) === event.target.dataset.id);
   result.done = event.target.checked;
-  setItem("taskList", tasks)
+  setItem("taskList", tasks);
   renderList();
 };
 
 const onBoxSelect = (event) => {
   const isCheckBox = event.target.classList.contains("list__item-checkbox");
-
+  
   if (!isCheckBox) {
     return;
   }
@@ -48,4 +47,4 @@ const addTask = () => {
   renderList();
 };
 createBtn.addEventListener("click", addTask);
-
+renderTasks();
