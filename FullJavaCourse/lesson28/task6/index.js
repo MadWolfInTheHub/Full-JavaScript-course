@@ -15,4 +15,4 @@ export const maxFibonacci = (num) => {
   return res - amountToDecrease;
 };
 
-console.log(maxFibonachi(8));
+console.log(maxFibonacci(8));
