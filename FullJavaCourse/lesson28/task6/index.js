@@ -10,7 +10,6 @@ export const maxFibonacci = (num) => {
     amountToDecrease = previousNUmber;
     previousNUmber = currentNUmber;
     currentNUmber = res;
-    console.log(res)
   }
   return res - amountToDecrease;
 };
