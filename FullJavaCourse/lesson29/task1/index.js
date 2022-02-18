@@ -8,14 +8,15 @@ export const addImage = (imgSrc, callback) => {
 
   const onImageLoaded = () => {
     const { width, height } = imgElem;
-    onImageLoad(null, { width, height });
+    callback(null, { width, height });
   };
 
   imgElem.addEventListener("load", onImageLoaded);
-  imgElem.addEventListener("error", () => onImageLoad("Image load is failed"));
+  imgElem.addEventListener("error", () => callback("Image load is failed"));
 };
 
-const onImageLoad = (error, imgElem) => {
+// callack function
+const onImageLoaded = (error, imgElem) => {
   if (error) {
     console.log(error);
     return;
@@ -26,6 +27,12 @@ const onImageLoad = (error, imgElem) => {
 
   sizeElem.textContent = `${width} x ${height}`;
 };
-
-const srcPic = "./image/WeChatImage_20210112180634.jpg";
-addImage(srcPic, onImageLoad);
+/* addImage(
+  "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg",
+  onImageLoaded
+); */
+/* const srcPic = "./image/WeChatImage_20210112180634.jpg"; */
+/* addImage(
+  srcPic,
+  onImageLoaded
+); */
