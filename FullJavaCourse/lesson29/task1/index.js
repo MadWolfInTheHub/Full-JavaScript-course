@@ -27,11 +27,12 @@ const onImageLoaded = (error, imgElem) => {
 
   sizeElem.textContent = `${width} x ${height}`;
 };
-
-const srcPic = "./image/WeChatImage_20210112180634.jpg";
-// examples
+addImage(
+  "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg",
+  onImageLoaded
+);
+/* const srcPic = "./image/WeChatImage_20210112180634.jpg"; */
 /* addImage(
   srcPic,
   onImageLoaded
 ); */
-/* const imgSrc = ./image/WeChatImage_20210112180634.jpg; */
