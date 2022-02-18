@@ -8,15 +8,14 @@ export const addImage = (imgSrc, callback) => {
 
   const onImageLoaded = () => {
     const { width, height } = imgElem;
-    callback(null, { width, height });
+    onImageLoad(null, { width, height });
   };
 
   imgElem.addEventListener("load", onImageLoaded);
-  imgElem.addEventListener("error", () => callback("Image load is failed"));
+  imgElem.addEventListener("error", () => onImageLoad("Image load is failed"));
 };
 
-// callack function
-const onImageLoaded = (error, imgElem) => {
+const onImageLoad = (error, imgElem) => {
   if (error) {
     console.log(error);
     return;
@@ -28,8 +27,5 @@ const onImageLoaded = (error, imgElem) => {
   sizeElem.textContent = `${width} x ${height}`;
 };
 
-/* const srcPic = "./image/WeChatImage_20210112180634.jpg"; */
-/* addImage(
-  srcPic,
-  onImageLoaded
-); */
+const srcPic = "./image/WeChatImage_20210112180634.jpg";
+addImage(srcPic, onImageLoad);
