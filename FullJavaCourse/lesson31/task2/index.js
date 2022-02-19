@@ -17,9 +17,10 @@ export const asyncCalculator = (number) => {
     })
     .then((data) => {
       const promise = new Promise((resolve) => {
+        const res = data * 2;
         setTimeout(() => {
-          const res = data * 2;
           console.log(`Doubled number: ${res}`);
+          resolve(res);
         }, 0);
       });
       return promise;
@@ -27,5 +28,5 @@ export const asyncCalculator = (number) => {
   return p;
 };
 
-/* asyncCalculator(5) */
-/* .then(value => console.log(value)) */
+/* asyncCalculator(5)
+.then(value => console.log(value)) */
