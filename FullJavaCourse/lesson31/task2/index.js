@@ -28,5 +28,5 @@ export const asyncCalculator = (number) => {
   return p;
 };
 
-/* asyncCalculator(5)
-.then(value => console.log(value)) */
+asyncCalculator(5)
+.then(value => console.log(value))
