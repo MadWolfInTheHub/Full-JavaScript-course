@@ -9,7 +9,7 @@ const userDataPromise = new Promise((resolve) => {
  * Выведите в консоль переменную userDataPromise
  * Ответьте себе на вопрос, какой тип данных имеет переменная userDataPromise?
  */
-console.log(userDataPromise);
+
 /* ...code here */
 
 /*
@@ -28,6 +28,7 @@ userDataPromise.then(function onSuccess(userData) {
  * Tom и 17 достаньте с данных, которые приходят в ф-цию onSuccess
  */
 
-userDataPromise.then(function onSuccess({name, age}) {
-  console.log(`My name is ${name}. I am ${age} years old`)
+userDataPromise.then(function onSuccess({ name, age }) {
+  console.log(`My name is ${name}. I am ${age} years old`);
 });
+console.log(userDataPromise);
