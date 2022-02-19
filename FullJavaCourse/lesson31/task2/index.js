@@ -16,12 +16,16 @@ export const asyncCalculator = (number) => {
       return pr;
     })
     .then((data) => {
-      const res = data * 2;
-      console.log(`Doubled number: ${res}`);
-      return res;
+      const promise = new Promise((resolve) => {
+        setTimeout(() => {
+          const res = data * 2;
+          console.log(`Doubled number: ${res}`);
+        }, 0);
+      });
+      return promise;
     });
-    return p;
+  return p;
 };
 
-/* asyncCalculator(5)
-.then(value => console.log(value)) */
+/* asyncCalculator(5) */
+/* .then(value => console.log(value)) */
