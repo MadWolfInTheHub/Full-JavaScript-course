@@ -9,7 +9,7 @@ export const asyncCalculator = (number) => {
       const pr = new Promise((resolve) => {
         const result = data * data;
         setTimeout(() => {
-          console.log(`Squared nimber: ${result}`);
+          console.log(`Squared value: ${result}`);
           resolve(result);
         }, 500);
       });
@@ -19,7 +19,7 @@ export const asyncCalculator = (number) => {
       const promise = new Promise((resolve) => {
         const res = data * 2;
         setTimeout(() => {
-          console.log(`Doubled number: ${res}`);
+          console.log(`Doubled value: ${res}`);
           resolve(res);
         }, 0);
       });
