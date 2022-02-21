@@ -15,4 +15,3 @@ export const makePromise = (num) => {
 makePromise(17).then((number) => {
   console.log(number); // 17
 });
-/* hi */
