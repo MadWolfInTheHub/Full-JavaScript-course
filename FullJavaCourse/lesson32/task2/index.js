@@ -18,9 +18,9 @@ const request = (url) =>
         source: url,
       });
     }, randomDelay);
-  });
+});
 
-const getUserASAP = (userId) => {
+export const getUserASAP = (userId) => {
   const userUrls = servers.map((serverUrl) => `${serverUrl}/users/${userId}`);
   const requests = userUrls.map((userUrl) => request(userUrl));
   return Promise.race(requests);
