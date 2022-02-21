@@ -2,7 +2,7 @@
  * ф-ция makePromise должна вернуть промис со значением переданным в ф-цию
  */
 
-const makePromise = (num) => {
+export const makePromise = (num) => {
   const p = new Promise((resolve) => {
     resolve(num);
   });
@@ -15,3 +15,4 @@ const makePromise = (num) => {
 makePromise(17).then((number) => {
   console.log(number); // 17
 });
+/* hi */
