@@ -5,5 +5,5 @@ export function getTasksList() {
 }
 
 export function getTaskById(taskId) {
-  return getTasksList().then((data) => data.filter((el) => el.id === taskId));
+  return getTasksList().then((data) => data.find((el) => el.id === taskId));
 }
