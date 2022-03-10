@@ -5,13 +5,5 @@ export function getTasksList() {
 }
 
 export function getTaskById(taskId) {
-  return getTasksList().then((data) => data.find((el) => el.id === taskId));
+  return fetch(baseUrl).then((response) => response.json()).then((data) => data.find((el) => el.id === taskId));
 }
-
-getTasksList().then(tasksList => {
-  console.log(tasksList); // array of the task objects - [ {'id':'1', 'done':false ... }, {'id':'2', 'done':true ... }, ...]
-});
-
-getTaskById('2').then(taskData => {
-  console.log(taskData); // {'id':'2', 'done':true ... }
-});
