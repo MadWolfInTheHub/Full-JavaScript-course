@@ -4,10 +4,20 @@ function getTasksList() {
   return fetch(baseUrl).then((response) => response.json());
 }
 
-const taskList = getTasksList();
 
 function getTaskById(taskId) {
-  return taskList.then((data) => data.find((el) => el.id === taskId));
+  const requestedTask = `${baseUrl}/${taskId}`
+  console.log(requestedTask)
+  return fetch(requestedTask)
+  .then((response) => response.json());
 }
+// examples
+/* getTasksList().then(tasksList => {
+  console.log(tasksList); // array of the task objects - [ {'id':'1', 'done':false ... }, {'id':'2', 'done':true ... }, ...]
+});
 
-export { getTaskById, getTasksList };
+getTaskById('2').then(taskData => {
+  console.log(taskData); // {'id':'2', 'done':true ... }
+}); */
+
+export { getTaskById, getTasksList }; 
