@@ -1,4 +1,4 @@
-const baseUrl = "https://crudcrud.com/api/a21dd6d95bbe48a29d7428da8cf8371e";
+const baseUrl = "https://crudcrud.com/Dashboard/a21dd6d95bbe48a29d7428da8cf8371e";
 
 const emailEL = document.querySelector("[name=email]");
 const userNameEl = document.querySelector("[name=name]");
@@ -6,24 +6,25 @@ const passwordEl = document.querySelector("[name=password]");
 const submitForm = document.querySelector(".login-form");
 const registerBtn = document.querySelector(".submit-button");
 
-const creatUser = (newUserData) => {
-  return fetch(`${baseUrl}/users`, {
-    metod: "POST",
+function createUser(userData) {
+  return fetch(baseUrl, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json=utf-8",
     },
-    body: JSON.stringify(newUserData),
+    body: JSON.stringify(userData),
   });
-};
+}
 
 const onRegisterUser = () => {
-  const newUser = {};
-  newUser.email = emailEL.value;
-  newUser.userName = userNameEl.value;
-  newUser.password = passwordEl.value;
-  creatUser(newUser);
-  console.log(newUser);
-  alert({newUser});
+  const newUser = {
+    email: emailEL.value,
+    userName: userNameEl.value,
+    password: passwordEl.value,
+  };
+  createUser(newUser).then(() => {
+    alert(newUser);
+  });
 };
 
 const onFormsubmit = () => {
@@ -36,5 +37,5 @@ const onFormsubmit = () => {
     }
 };
 
-submitForm.addEventListener("change", onFormsubmit);
+submitForm.addEventListener("input", onFormsubmit);
 registerBtn.addEventListener("click", onRegisterUser);
