@@ -23,13 +23,17 @@ const onRegisterUser = () => {
   newUser.password = passwordEl.value;
   creatUser(newUser);
   console.log(newUser);
-  alert(newUser);
+  alert({newUser});
 };
 
 const onFormsubmit = () => {
   submitForm.reportValidity() === true
     ? (registerBtn.disabled = false)
     : (registerBtn.disabled = true);
+    
+    if(!registerBtn.hasAttribute('disabled')) {
+        registerBtn.setAttribute('enabled', '')
+    }
 };
 
 submitForm.addEventListener("change", onFormsubmit);
