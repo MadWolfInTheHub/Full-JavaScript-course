@@ -3,6 +3,7 @@ const baseUrl = "https://crudcrud.com/api/a21dd6d95bbe48a29d7428da8cf8371e";
 const emailEL = document.querySelector("[name=email]");
 const userNameEl = document.querySelector("[name=name]");
 const passwordEl = document.querySelector("[name=password]");
+const submitForm = document.querySelector(".login-form");
 const registerBtn = document.querySelector(".submit-button");
 
 const creatUser = (newUserData) => {
@@ -21,19 +22,15 @@ const onRegisterUser = () => {
   newUser.userName = userNameEl.value;
   newUser.password = passwordEl.value;
   creatUser(newUser);
- /*  console.log(newUser); */
+  console.log(newUser);
   alert(newUser);
 };
 
-const validityCheck = () => {
-  if (
-    emailEL.reportValidity() &&
-    userNameEl.reportValidity() &&
-    passwordEl.reportValidity()
-  ) {
-    registerBtn.removeAttribute("disabled");
-  }
+const onFormsubmit = () => {
+  submitForm.reportValidity() === true
+    ? (registerBtn.disabled = false)
+    : (registerBtn.disabled = true);
 };
 
-registerBtn.addEventListener("click", validityCheck);
+submitForm.addEventListener("change", onFormsubmit);
 registerBtn.addEventListener("click", onRegisterUser);
