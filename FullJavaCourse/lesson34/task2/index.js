@@ -1,16 +1,16 @@
 const baseUrl = "https://622c2e42087e0e041e050636.mockapi.io/users";
 
-export function getUsersList() {
+/* export */ function getUsersList() {
   return fetch(baseUrl).then((response) => response.json());
 }
 
-export function getUserById(userId) {
+/* export */ function getUserById(userId) {
   return fetch(`${baseUrl}/${userId}`).then((response) => response.json());
 }
 
-export function createUser(userData) {
+/* export */ function createUser(userData) {
   return fetch(baseUrl, {
-    method: "Post",
+    method: "POST",
     headers: {
       "Content-Type": "application/json=utf-8",
     },
@@ -18,15 +18,15 @@ export function createUser(userData) {
   });
 }
 
-export function deleteUser(userId) {
+/* export */ function deleteUser(userId) {
   return fetch(`${baseUrl}/${userId}`, {
     method: "DELETE",
   });
 }
 
-export function updateUser(userId, userData) {
+/* export */ function updateUser(userId, userData) {
   return fetch(`${baseUrl}/${userId}`, {
-    method: "Put",
+    method: "PUT",
     headers: {
       "Content-Type": "application/json=utf-8",
     },
@@ -35,7 +35,7 @@ export function updateUser(userId, userData) {
 }
 
 // examples
-/* getUsersList().then((users) => {
+getUsersList().then((users) => {
   console.log(users); // array of the user objects [{'id':'1', 'firstName':'Grayce' ... }, {'id':'2', 'firstName':'Ara' ... }, ...]
 });
 
@@ -69,4 +69,3 @@ updateUser("1", updatedUserData).then(() => {
 deleteUser("2").then(() => {
   console.log("User updated");
 });
- */
