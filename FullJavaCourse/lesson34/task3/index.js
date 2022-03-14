@@ -17,8 +17,8 @@ const createUser = (userData) => {
   });
 };
 
-const onRegisterUser = (e) => {
-  e.preventDefault();
+const onRegisterUser = () => {
+  /* e.preventDefault(); */
   const newUser = {
     name: userNameEl.value,
     email: emailEL.value,
@@ -35,15 +35,18 @@ const onRegisterUser = (e) => {
 };
 
 const onFormsubmit = () => {
-  submitForm.reportValidity() === true
-    ? (registerBtn.disabled = false)
-    : (registerBtn.disabled = true);
+  const isValid = submitForm.reportValidity();
+  if (isValid) {
+    registerBtn.disabled = false;
+  } else {
+    registerBtn.disabled = true;
+  }
 
   if (!registerBtn.hasAttribute("disabled")) {
     registerBtn.setAttribute("enabled", "");
   }
 };
 
-submitForm.addEventListener("input", onFormsubmit);
+submitForm.addEventListener("change", onFormsubmit);
 submitForm.addEventListener("submit", onRegisterUser);
 /* registerBtn.addEventListener("submit", onRegisterUser); */
