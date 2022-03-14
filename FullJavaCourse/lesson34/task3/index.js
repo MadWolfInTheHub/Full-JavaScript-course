@@ -50,6 +50,6 @@ const onFormsubmit = (e) => {
 };
 
 
-submitForm.addEventListener("change", onFormsubmit);
+submitForm.addEventListener("input", onFormsubmit);
 submitForm.addEventListener("submit", onRegisterUser);
 /* registerBtn.addEventListener("submit", onRegisterUser); */
