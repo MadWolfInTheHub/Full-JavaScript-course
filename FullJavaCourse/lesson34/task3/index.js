@@ -1,5 +1,4 @@
-const baseUrl =
-  "https://crudcrud.com/api/a21dd6d95bbe48a29d7428da8cf8371e/users";
+const baseUrl = "https://622ed8d45c86fd315eb64055.mockapi.io/api/v1/users";
 
 const emailEL = document.querySelector("[name=email]");
 const userNameEl = document.querySelector("[name=name]");
@@ -12,9 +11,9 @@ const createUser = (userData) => {
   return fetch(baseUrl, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json=utf-8",
+      "Content-Type": "application/json;charset=utf-8",
     },
-    body: userData,
+    body: JSON.stringify(userData),
   });
 };
 
@@ -22,18 +21,21 @@ function getUsersList() {
   return fetch(baseUrl).then((response) => response.json());
 }
 
-const onRegisterUser = () => {
+
+const onRegisterUser = (e) => {
+  e.preventDefault();
   const newUser = {
+    name: userNameEl.value,
     email: emailEL.value,
-    userName: userNameEl.value,
     password: passwordEl.value,
-    id: Math.random().toString(),
   };
 
-  createUser(JSON.stringify(newUser)).then(() => {
+  createUser(newUser).then(() => {
     console.log("User created");
   });
-  alert(getUsersList());
+  getUsersList().then((users) => {
+    alert(users);
+  });
 };
 
 const onFormsubmit = () => {
