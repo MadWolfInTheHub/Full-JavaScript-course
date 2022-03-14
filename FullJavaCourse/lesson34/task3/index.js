@@ -17,8 +17,8 @@ const createUser = (userData) => {
   });
 };
 
-const onRegisterUser = () => {
-  /* e.preventDefault(); */
+const onRegisterUser = (e) => {
+  e.preventDefault();
   const newUser = {
     name: userNameEl.value,
     email: emailEL.value,
