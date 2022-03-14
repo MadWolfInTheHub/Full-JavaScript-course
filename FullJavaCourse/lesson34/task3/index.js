@@ -24,14 +24,15 @@ const onRegisterUser = (e) => {
     email: emailEL.value,
     password: passwordEl.value,
   };
-  userNameEl.value = "";
-  emailEL.value = "";
-  passwordEl.value = "";
 
   createUser(newUser)
     .then((response) => response.json())
-    .then((data) => alert(JSON.stringify(data)));
-
+    .then((data) => alert(JSON.stringify(data)))
+    .finally(() => {
+      userNameEl.value = "";
+      emailEL.value = "";
+      passwordEl.value = "";
+    });
 };
 
 const onFormsubmit = (e) => {
