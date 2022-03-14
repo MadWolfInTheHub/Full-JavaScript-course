@@ -24,17 +24,18 @@ const onRegisterUser = (e) => {
     email: emailEL.value,
     password: passwordEl.value,
   };
+  userNameEl.value = "";
+  emailEL.value = "";
+  passwordEl.value = "";
 
   createUser(newUser)
     .then((response) => response.json())
     .then((data) => alert(JSON.stringify(data)));
 
-  userNameEl.value = "";
-  emailEL.value = "";
-  passwordEl.value = "";
 };
 
-const onFormsubmit = () => {
+const onFormsubmit = (e) => {
+  e.preventDefault();
   const isValid = submitForm.reportValidity();
   if (isValid) {
     registerBtn.disabled = false;
@@ -47,6 +48,7 @@ const onFormsubmit = () => {
   }
 };
 
-submitForm.addEventListener("change", onFormsubmit);
+
+submitForm.addEventListener("input", onFormsubmit);
 submitForm.addEventListener("submit", onRegisterUser);
 /* registerBtn.addEventListener("submit", onRegisterUser); */
