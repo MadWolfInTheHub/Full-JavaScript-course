@@ -17,11 +17,6 @@ const createUser = (userData) => {
   });
 };
 
-function getUsersList() {
-  return fetch(baseUrl).then((response) => response.json());
-}
-
-
 const onRegisterUser = (e) => {
   e.preventDefault();
   const newUser = {
@@ -30,12 +25,13 @@ const onRegisterUser = (e) => {
     password: passwordEl.value,
   };
 
-  createUser(newUser).then(() => {
-    console.log("User created");
-  });
-  getUsersList().then((users) => {
-    alert(users);
-  });
+  createUser(newUser)
+    .then((response) => response.json())
+    .then((data) => alert(JSON.stringify(data)));
+
+  userNameEl.value = "";
+  emailEL.value = "";
+  passwordEl.value = "";
 };
 
 const onFormsubmit = () => {
