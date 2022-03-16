@@ -1,7 +1,7 @@
 const user = '{ "name":"Tom"';
 let userParsingResult;
 
-const parseUser = (user) => {
+export const parseUser = (user) => {
   try {
     userParsingResult = JSON.parse(user);
 /*     console.log("User data: ", user);
@@ -12,4 +12,4 @@ const parseUser = (user) => {
     console.log(userParsingResult);
   }
 };
-parseUser(user);
+/* parseUser(user); */
