@@ -1,4 +1,4 @@
-const user = '{ "name":"Tom"';
+/* const user = '{ "name":"Tom"'; */
 let userParsingResult;
 
 export const parseUser = (user) => {
@@ -9,7 +9,7 @@ export const parseUser = (user) => {
   } catch (e) {
     userParsingResult = null;
   } finally {
-    console.log(userParsingResult);
+    return userParsingResult;
   }
 };
 /* parseUser(user); */
