@@ -11,4 +11,4 @@ export const getUsersBlogs = (usersArr) => {
   });
   return Promise.all(res);
 };
-getUsersBlogs(["facebook", "google", "gaearon"]).then((linkList) => console.log(linkList));
+/* getUsersBlogs(["facebook", "google", "gaearon"]).then((linkList) => console.log(linkList)); */
