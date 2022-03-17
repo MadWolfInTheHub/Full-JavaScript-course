@@ -5,14 +5,10 @@ const fetchUserData = async (userId) => {
 };
 
 export const getUsersBlogs = (usersArr) => {
-  return Promise.all(
-    usersArr.map((el) => {
-      fetchUserData(el)
-    })
-  );
+  const res = []
+  usersArr.forEach((el) => {
+    res.push(fetchUserData(el));
+  });
+  return Promise.all(res);
 };
-/* console.log(fetchUserData("facebook"));
-
-console.log(getUsersBlogs(["facebook", "google", "gaearon"])).then((linkList) =>
-  console.log(linkList)
-); */
+getUsersBlogs(["facebook", "google", "gaearon"]).then((linkList) => console.log(linkList));

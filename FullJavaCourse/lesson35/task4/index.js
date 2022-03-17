@@ -4,7 +4,7 @@ let userParsingResult;
 export const parseUser = (user) => {
   try {
     userParsingResult = JSON.parse(user);
-/*     console.log("User data: ", user);
+    /*     console.log("User data: ", user);
     userParsingResult = "success"; */
   } catch (e) {
     userParsingResult = null;
