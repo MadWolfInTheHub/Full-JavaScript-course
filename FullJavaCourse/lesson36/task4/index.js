@@ -4,7 +4,7 @@ const fetchUserData = async (userId) => {
   );
 };
 
-const getUsersBlogs = (usersArr) => {
+export const getUsersBlogs = (usersArr) => {
   usersArr.forEach((element) => {
     fetchUserData(element.blog);
   });
