@@ -1,16 +1,18 @@
 const fetchUserData = async (userId) => {
-  return fetch(`https://api.github.com/users/${userId}`).then((response) =>
-    response.json()
-  );
+  return await fetch(`https://api.github.com/users/${userId}`)
+    .then((response) => response.json())
+    .then((data) => data.blog);
 };
 
 export const getUsersBlogs = (usersArr) => {
-  usersArr.forEach((element) => {
-    fetchUserData(element.blog);
-  });
+  return Promise.all(
+    usersArr.map((el) => {
+      fetchUserData(el)
+    })
+  );
 };
+/* console.log(fetchUserData("facebook"));
 
-getUsersBlogs(["facebook", "google", "gaearon"])/* .then((linkList) =>
+console.log(getUsersBlogs(["facebook", "google", "gaearon"])).then((linkList) =>
   console.log(linkList)
 ); */
-console.log(fetchUserData("facebook"));
